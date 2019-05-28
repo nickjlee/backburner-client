@@ -1,0 +1,27 @@
+Register Form
+
+1. User enters valid email & password                 => user dashboard
+2. User enters valid email but no password            => error message about must provide password
+3. User enters valid password but no email            => error message about must provide email
+4. User enters simple password                        => error message about password too simple
+5. User enters an email that is already taken         => message that email is already taken
+
+Log In      
+
+1. User enters valid email & password                 => user dashboard
+2. User enters invalid password                       => error message about incorrect username or password
+3. User enter invalid email                           => error message about incorrect username or password
+
+Dashboard       
+
+1. User clicks anywhere on task item                  => task expands to show additional information
+2. User clicks on edit icon of expanded task item     => redirect to edit task page
+3. User clicks on delete icon of expanded task item   => splash confirmation modal
+4. User clicks on add task in nav                     => redirect to add task page
+5. User clicks on log out                             => splash confirmation modal
+
+Landing Page
+
+1. User clicks on Register                            => redirect to registration form
+2. User clicks on Log In                              => pop up log in modal
+3. User clicks on demo                                => redirect to demo dashboard
