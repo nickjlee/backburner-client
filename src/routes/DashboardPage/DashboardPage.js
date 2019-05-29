@@ -4,6 +4,7 @@ import TaskListItem from '../../components/TaskListItem/TaskListItem'
 
 import store from '../../dummy-store'
 import UserProfileBrief from '../../components/UserProfileBrief/UserProfileBrief';
+import TaskList from '../../components/TaskList/TaskList';
 
 export default class DashboardPage extends Component {
   static contextType = DashboardContext
@@ -18,7 +19,7 @@ export default class DashboardPage extends Component {
   renderTasks() {
     const { taskList = [] } = this.context
 
-    return taskList.map(task => <TaskListItem key={task.id} task={task} />)
+    return <TaskList taskList={taskList} />
   }
 
   renderUserProfileBrief() {
@@ -31,7 +32,7 @@ export default class DashboardPage extends Component {
     const { error } = this.context
 
     return (<>
-      <section className="TaskListPage">
+      <section className="TaskList">
         {error
           ? <p className='red'>There was an error, please try again</p>
           : this.renderTasks()

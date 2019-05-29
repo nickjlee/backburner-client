@@ -26,9 +26,9 @@ export default class App extends Component {
             <DashboardPage />
           </div>
 
-          <div className="backend__test">
+          {/* <div className="backend__test">
             {this.state.task}
-          </div>
+          </div> */}
         </main>
       </div>
     )

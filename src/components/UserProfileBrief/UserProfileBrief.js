@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './UserProfileBrief.css'
 
 export default class UserProfileBrief extends Component {
   render() {

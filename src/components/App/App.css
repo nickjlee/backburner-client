@@ -3,6 +3,18 @@
 }
 
 body {
-  background-color: black;
-  color: white;
+  /* background-color: black;
+  color: white; */
+}
+
+main {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+.column {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
