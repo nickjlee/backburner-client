@@ -6,6 +6,7 @@ import './App.css'
 import store from '../../dummy-store'
 import TaskListItem from '../TaskListItem/TaskListItem'
 import TasksApiService from '../../services/tasks-api-service'
+import TaskListPage from '../../routes/TaskListPage/TaskListPage';
 
 export default class App extends Component {
   state = { task: null, hasError: false }
@@ -29,7 +30,12 @@ export default class App extends Component {
           <h2>Level-Up!!!</h2>
 
           <div className="tasks">
-            <TaskListItem task={store[0]} />
+            <ul>
+              <TaskListPage />
+            </ul>
+          </div>
+
+          <div className="backend__test">
             {this.state.task}
           </div>
         </main>
