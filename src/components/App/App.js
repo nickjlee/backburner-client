@@ -4,7 +4,7 @@ import Header from '../Header/Header'
 import './App.css'
 
 import TasksApiService from '../../services/tasks-api-service'
-import TaskListPage from '../../routes/TaskListPage/TaskListPage';
+import DashboardPage from '../../routes/DashboardPage/DashboardPage';
 
 export default class App extends Component {
   state = { task: null, hasError: false }
@@ -23,9 +23,7 @@ export default class App extends Component {
         </header>
         <main className="App__main">
           <div className="tasks">
-            <ul>
-              <TaskListPage />
-            </ul>
+            <DashboardPage />
           </div>
 
           <div className="backend__test">

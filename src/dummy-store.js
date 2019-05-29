@@ -29,4 +29,14 @@ const tasks = [
   }
 ]
 
-module.exports = tasks
+const users = [
+  {
+    id: 1,
+    username: 'demo',
+    first_name: 'demo',
+    date_joined: '2019-01-02',
+    level: 1
+  }
+]
+
+module.exports = {tasks, users}

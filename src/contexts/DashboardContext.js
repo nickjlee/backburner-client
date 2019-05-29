@@ -1,23 +1,30 @@
 import React, { Component } from 'react'
 
-const TaskListContext = React.createContext({
+const DashboardContext = React.createContext({
   taskList: [],
+  user: {},
   error: null,
   setError: () => {},
   clearError: () => {},
-  setTaskList: () => {}
+  setTaskList: () => {},
+  setUser: () => {}
 })
 
-export default TaskListContext
+export default DashboardContext
 
-export class TaskListProvider extends Component {
+export class DashboardProvider extends Component {
   state = {
     taskList: [],
+    user: {},
     error: null
   }
 
   setTaskList = taskList => {
     this.setState({ taskList })
+  }
+
+  setUser = user => {
+    this.setState({ user })
   }
 
   setError = error => {
@@ -31,16 +38,18 @@ export class TaskListProvider extends Component {
   render() {
     const value = {
       taskList: this.state.taskList,
+      user: this.state.user,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
-      setTaskList: this.setTaskList
+      setTaskList: this.setTaskList,
+      setUser: this.setUser
     }
 
     return (
-      <TaskListContext.Provider value={value}>
+      <DashboardContext.Provider value={value}>
         {this.props.children}
-      </TaskListContext.Provider>
+      </DashboardContext.Provider>
     )
   }
 }
