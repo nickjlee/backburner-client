@@ -1,25 +1,39 @@
-import React, { Component } from 'react';
-// import { Route, Switch } from 'react-router-dom';
-import Header from '../Header/Header';
-import './App.css';
+import React, { Component } from 'react'
+import { Route, Switch } from 'react-router-dom'
+import Header from '../Header/Header'
+import './App.css'
+
+import store from '../../dummy-store'
+import TaskListItem from '../TaskListItem/TaskListItem'
+import TasksApiService from '../../services/tasks-api-service'
 
 export default class App extends Component {
-  state = { hasError: false };
+  state = { task: null, hasError: false }
+
+  componentDidMount() {
+    TasksApiService.getTasks()
+      .then(res => this.setState({task: res}))
+      .catch()
+  }
 
   render() {
     return (
-      <div className='App'>
-        <header className='App__header'>
+      <div className="App">
+        <header className="App__header">
           <Header />
         </header>
-        <main className='App__main'>
+        <main className="App__main">
           <h1>Welcome to BackBurner</h1>
           <h2>Add your tasks...</h2>
           <h2>Check off as you do...</h2>
           <h2>Level-Up!!!</h2>
+
+          <div className="tasks">
+            <TaskListItem task={store[0]} />
+            {this.state.task}
+          </div>
         </main>
       </div>
     )
   }
 }
-
