@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import DashboardContext from '../../contexts/DashboardContext'
 import DashboardApiService from '../../services/dashboard-api-service'
-import store from '../../dummy-store'
 import UserProfileBrief from '../../components/UserProfileBrief/UserProfileBrief'
 import TaskList from '../../components/TaskList/TaskList'
 
