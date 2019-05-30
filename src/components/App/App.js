@@ -3,17 +3,11 @@ import { Route, Switch } from 'react-router-dom'
 import Header from '../Header/Header'
 import './App.css'
 
-import TasksApiService from '../../services/tasks-api-service'
-import DashboardPage from '../../routes/DashboardPage/DashboardPage';
+import LandingPage from '../../routes/LandingPage/LandingPage'
+import DashboardPage from '../../routes/DashboardPage/DashboardPage'
 
 export default class App extends Component {
-  state = { task: null, hasError: false }
-
-  componentDidMount() {
-    TasksApiService.getTasks()
-      .then(res => this.setState({task: res}))
-      .catch()
-  }
+  state = { hasError: false }
 
   render() {
     return (
@@ -23,12 +17,11 @@ export default class App extends Component {
         </header>
         <main className="App__main">
           <div className="tasks">
-            <DashboardPage />
+            <Switch>
+              <Route exact path={'/'} component={LandingPage} />
+              <Route path={'/:username/dash'} component={DashboardPage} />
+            </Switch>
           </div>
-
-          {/* <div className="backend__test">
-            {this.state.task}
-          </div> */}
         </main>
       </div>
     )
