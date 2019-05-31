@@ -5,6 +5,7 @@ import './App.css'
 
 import LandingPage from '../../routes/LandingPage/LandingPage'
 import DashboardPage from '../../routes/DashboardPage/DashboardPage'
+import LoginPage from '../../routes/LoginPage/LoginPage';
 
 export default class App extends Component {
   state = { hasError: false }
@@ -19,6 +20,7 @@ export default class App extends Component {
           <div className="tasks">
             <Switch>
               <Route exact path={'/'} component={LandingPage} />
+              <Route path={'/login'} component={LoginPage} />
               <Route path={'/:username/dash'} component={DashboardPage} />
             </Switch>
           </div>
