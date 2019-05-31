@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import DashboardContext from '../../contexts/DashboardContext'
 import DashboardApiService from '../../services/dashboard-api-service'
-import { Section } from '../../Utils/Utils';
+import { Section } from '../../components/Utils/Utils';
 import UserProfileBrief from '../../components/UserProfileBrief/UserProfileBrief'
 import TaskList from '../../components/TaskList/TaskList'
 

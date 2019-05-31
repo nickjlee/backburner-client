@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './TaskListItem.css'
-import { Button } from '../../Utils/Utils';
+import { Button } from '../Utils/Utils';
 export default class TaskListItem extends Component {
   render() {
     const { task } = this.props

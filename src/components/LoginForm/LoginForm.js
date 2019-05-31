@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TokenService from '../../services/token-service'
 import AuthService from '../../services/auth-api-service'
-import { Input, Button } from '../../Utils/Utils'
+import { Input, Button } from '../Utils/Utils'
 
 export default class LoginForm extends Component {
   static defaultProps = {

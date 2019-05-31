@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Section } from '../../Utils/Utils';
+import { Section } from '../../components/Utils/Utils';
 import LoginForm from '../../components/LoginForm/LoginForm';
 
 export default class LoginPage extends Component {
@@ -11,8 +11,8 @@ export default class LoginPage extends Component {
   }
 
   handleLoginSuccess = (username) => {
-    const { location, history } = this.props
-    const destination = (location.state || {}).from || `/${username}/dash`
+    const { history } = this.props
+    const destination = `/${username}/dash`
     history.push(destination)
   }
   

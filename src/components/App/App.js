@@ -6,6 +6,8 @@ import './App.css'
 import LandingPage from '../../routes/LandingPage/LandingPage'
 import DashboardPage from '../../routes/DashboardPage/DashboardPage'
 import LoginPage from '../../routes/LoginPage/LoginPage';
+import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
+import PrivateRoute from '../Utils/PrivateRoute';
 
 export default class App extends Component {
   state = { hasError: false }
@@ -17,13 +19,12 @@ export default class App extends Component {
           <Header />
         </header>
         <main className="App__main">
-          <div className="tasks">
-            <Switch>
-              <Route exact path={'/'} component={LandingPage} />
-              <Route path={'/login'} component={LoginPage} />
-              <Route path={'/:username/dash'} component={DashboardPage} />
-            </Switch>
-          </div>
+          {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
+          <Switch>
+            <Route exact path={'/'} component={LandingPage} />
+            <PublicOnlyRoute path={'/login'} component={LoginPage} />
+            <PrivateRoute path={'/:username/dash'} component={DashboardPage} />
+          </Switch>
         </main>
       </div>
     )
