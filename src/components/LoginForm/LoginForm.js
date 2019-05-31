@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Input, Button } from '../../Utils/Utils';
 
 export default class LoginForm extends Component {
   static defaultProps = {
@@ -21,15 +22,26 @@ export default class LoginForm extends Component {
           <label htmlFor="LoginForm_username">
             Username
           </label>
-          <input type="text" name="username" id="LoginForm_username" required />
+          <Input 
+            required 
+            name="username" 
+            id="LoginForm_username">
+          </Input>
         </div>
         <div className="password">
           <label htmlFor="LoginForm_password">
             Password
           </label>
-          <input type="password" name="password" id="LoginForm_password" required />
+          <Input 
+            required 
+            type="password" 
+            name="password" 
+            id="LoginForm_password">
+          </Input>
         </div>
-        <button type="submit">Login</button>
+        <Button type="submit">
+          Login
+        </Button>
       </form>
     )
   }

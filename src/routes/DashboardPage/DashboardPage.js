@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import DashboardContext from '../../contexts/DashboardContext'
 import DashboardApiService from '../../services/dashboard-api-service'
+import { Section } from '../../Utils/Utils';
 import UserProfileBrief from '../../components/UserProfileBrief/UserProfileBrief'
 import TaskList from '../../components/TaskList/TaskList'
 
@@ -40,20 +41,20 @@ export default class DashboardPage extends Component {
     
     return (
       <>
-        <section className="TaskList">
-          {error ? (
-            <p className="red">There was an error retrieving Tasks, please try again</p>
-          ) : (
-            this.renderTasks()
-          )}
-        </section>
-        <section className="UserProfileBrief">
+        <Section className="UserProfileBrief">
           {error ? (
             <p className="red">There was an error retrieving User, please try again</p>
           ) : (
             this.renderUserProfileBrief()
           )}
-        </section>
+        </Section>
+        <Section list className="TaskList">
+          {error ? (
+            <p className="red">There was an error retrieving Tasks, please try again</p>
+          ) : (
+            this.renderTasks()
+          )}
+        </Section>
       </>
     )
   }

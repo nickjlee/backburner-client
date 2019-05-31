@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './TaskListItem.css'
+import { Button } from '../../Utils/Utils';
 export default class TaskListItem extends Component {
   render() {
     const { task } = this.props
@@ -10,8 +11,8 @@ export default class TaskListItem extends Component {
         <div className="TaskListItem__due_date">{task.due_date}</div>
         <div className="TaskListItem__reward">{task.reward}</div>
         <div className="TaskListItem__xp">{task.xp}</div>
-        <button className="TaskListItem__edit">Edit</button>
-        <button className="TaskListItem__delete">Delete</button>
+        <Button className="TaskListItem__edit">Edit</Button>
+        <Button className="TaskListItem__delete">Delete</Button>
       </li>
     )
   }
