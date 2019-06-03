@@ -4,10 +4,11 @@ const DashboardContext = React.createContext({
   taskList: [],
   user: {},
   error: null,
+  setTaskList: () => {},
+  setUser: () => {},
+  clearUser: () => {},
   setError: () => {},
   clearError: () => {},
-  setTaskList: () => {},
-  setUser: () => {}
 })
 
 export default DashboardContext
@@ -27,6 +28,10 @@ export class DashboardProvider extends Component {
     this.setState({ user })
   }
 
+  clearUser = () => {
+    this.setState({ user: {} })
+  }
+
   setError = error => {
     console.error(error)
     this.setState({ error })
@@ -40,11 +45,12 @@ export class DashboardProvider extends Component {
     const value = {
       taskList: this.state.taskList,
       user: this.state.user,
+      setTaskList: this.setTaskList,
+      setUser: this.setUser,
+      clearUser: this.clearUser,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
-      setTaskList: this.setTaskList,
-      setUser: this.setUser
     }
 
     return (

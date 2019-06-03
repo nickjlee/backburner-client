@@ -15,11 +15,17 @@ export default class DashboardPage extends Component {
   componentDidMount() {
     const { username } = this.props.match.params
     this.context.clearError()
+
+    
     DashboardApiService.getUserByUsername(username)
-      .then(this.context.setUser)
-      .then( () => {
+    .then(this.context.setUser)
+    .then(() => {
+      if(username !== this.context.user.username) {
+        this.context.setError('You are authorized for this page')
+      } else {
         DashboardApiService.getUserTasks(this.context.user.id)
-          .then(this.context.setTaskList)
+            .then(this.context.setTaskList)
+      }
       })
       .catch(this.context.setError)
   }

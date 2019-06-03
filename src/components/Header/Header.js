@@ -4,10 +4,14 @@ import TokenService from '../../services/token-service'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFireAlt } from '@fortawesome/free-solid-svg-icons'
 import './Header.css'
+import DashboardContext from '../../contexts/DashboardContext';
 
 export default class Header extends Component {
+  static contextType = DashboardContext
+
   handleLogoutClick = () => {
     TokenService.clearAuthToken()
+    this.context.clearUser()
   }
 
   renderLogoutLink() {
