@@ -11,7 +11,7 @@ const TasksContext = React.createContext({
 
 export default TasksContext
 
-export class TasksContextProvider extends Component {
+export class TasksProvider extends Component {
   state = {
     taskList: [],
     error: null
