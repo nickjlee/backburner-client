@@ -35,6 +35,7 @@ export class DashboardProvider extends Component {
   clearError = () => {
     this.setState({ error: null })
   }
+  
   render() {
     const value = {
       taskList: this.state.taskList,

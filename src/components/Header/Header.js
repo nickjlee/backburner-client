@@ -38,8 +38,7 @@ export default class Header extends Component {
   }
 
   render() {
-    return (
-      <>
+    return <>
         <nav className='Header'>
           <h1>
             <Link to='/'>
@@ -57,6 +56,5 @@ export default class Header extends Component {
 
         <span className='Header__tagline--narrow'>Level Up Your Life.</span>
       </>
-    )
   }
 }

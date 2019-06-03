@@ -6,11 +6,17 @@ import './App.css'
 import LandingPage from '../../routes/LandingPage/LandingPage'
 import DashboardPage from '../../routes/DashboardPage/DashboardPage'
 import LoginPage from '../../routes/LoginPage/LoginPage';
+import RegisterPage from '../../routes/RegisterPage/RegisterPage'
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
 import PrivateRoute from '../Utils/PrivateRoute';
 
 export default class App extends Component {
   state = { hasError: false }
+
+  static getDerivedStateFromError(error) {
+    console.error(error)
+    return { hasError: true }
+  }
 
   render() {
     return (
@@ -23,6 +29,7 @@ export default class App extends Component {
           <Switch>
             <Route exact path={'/'} component={LandingPage} />
             <PublicOnlyRoute path={'/login'} component={LoginPage} />
+            <PublicOnlyRoute path={'/register'} component={RegisterPage} />
             <PrivateRoute path={'/:username/dash'} component={DashboardPage} />
           </Switch>
         </main>
