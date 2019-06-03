@@ -9,6 +9,7 @@ import LoginPage from '../../routes/LoginPage/LoginPage';
 import RegisterPage from '../../routes/RegisterPage/RegisterPage'
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
 import PrivateRoute from '../Utils/PrivateRoute';
+import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
 
 export default class App extends Component {
   state = { hasError: false }
@@ -31,6 +32,7 @@ export default class App extends Component {
             <PublicOnlyRoute path={'/login'} component={LoginPage} />
             <PublicOnlyRoute path={'/register'} component={RegisterPage} />
             <PrivateRoute path={'/:username/dash'} component={DashboardPage} />
+            <Route component={NotFoundPage} />
           </Switch>
         </main>
       </div>
