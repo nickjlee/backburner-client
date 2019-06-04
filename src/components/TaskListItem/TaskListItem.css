@@ -1,2 +1,9 @@
+.TaskListItem {
+  /* margin-bottom: 5%; */
+  padding: 1% 5%;
+}
 
-
+.Button {
+  margin: 2.5%;
+  width: 45%;
+}
