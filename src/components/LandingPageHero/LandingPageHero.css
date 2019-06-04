@@ -1,0 +1,22 @@
+.hero {
+  margin: 20% 10% auto;
+  top: 50%;
+  left: 50%;
+  display: block;
+  text-align: center;
+}
+
+.hero-title {
+  display: block;
+  padding-bottom: 5%;
+  font-size: 150%;
+}
+
+.hero-subtitle {
+  display: block;
+  padding-bottom: 5%;
+}
+
+.hero-text {
+  font-size: 50%;
+}
