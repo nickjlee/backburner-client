@@ -6,6 +6,10 @@ import { Input, Button } from '../Utils/Utils'
 export default class TaskForm extends Component {
   static contextType = DashboardContext
 
+  static defaultProps = {
+    onAddSuccess: () => {}
+  }
+
   handleSubmit = ev => {
     ev.preventDefault()
 
@@ -21,10 +25,11 @@ export default class TaskForm extends Component {
     )
       .then(this.context.addNewTask)
       .then(() => {
+        this.props.onAddSuccess()
         text.value = ''
-        // due_date.value = ''
+        due_date.value = ''
         reward.value = ''
-        // xp.value = ''
+        xp.value = '10'
       })
       .catch(this.context.setError)
   }
