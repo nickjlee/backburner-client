@@ -19,6 +19,13 @@ export class DashboardProvider extends Component {
     user: {},
     error: null
   }
+  
+  addNewTask = newTask => {
+    this.setTaskList([
+      ...this.state.taskList,
+      newTask
+    ])
+  }
 
   setTaskList = taskList => {
     this.setState({ taskList })

@@ -1,4 +1,5 @@
 import config from '../config'
+import jwt from 'jsonwebtoken'
 
 const TokenService = {
   saveAuthToken(token) {
@@ -15,6 +16,11 @@ const TokenService = {
   },
   makeBasicAuthToken(userName, password) {
     return window.btoa(`${userName}:${password}`)
+  },
+  getTokenPayload() {
+    if(this.hasAuthToken()) {
+      return jwt.decode(this.getAuthToken()) // {sub: user_id}
+    }
   }
 }
 

@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import DashboardContext from '../../contexts/DashboardContext'
 import DashboardApiService from '../../services/dashboard-api-service'
 import { Section } from '../../components/Utils/Utils';
 import UserProfileBrief from '../../components/UserProfileBrief/UserProfileBrief'
 import TaskList from '../../components/TaskList/TaskList'
+import TokenService from '../../services/token-service'
 
 export default class DashboardPage extends Component {
   static defaultProps = {
@@ -13,9 +15,8 @@ export default class DashboardPage extends Component {
   static contextType = DashboardContext
 
   componentDidMount() {
-    const { username } = this.props.match.params
     this.context.clearError()
-
+    const username = TokenService.getTokenPayload().sub
     
     DashboardApiService.getUserByUsername(username)
     .then(this.context.setUser)
@@ -54,6 +55,7 @@ export default class DashboardPage extends Component {
             this.renderUserProfileBrief()
           )}
         </Section>
+        <Link to="/new-task">Add New Task</Link>
         <Section list className="TaskList">
           {error ? (
             <p className="red">There was an error retrieving Tasks, please try again</p>

@@ -10,6 +10,7 @@ import RegisterPage from '../../routes/RegisterPage/RegisterPage'
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
 import PrivateRoute from '../Utils/PrivateRoute';
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
+import TaskForm from '../TaskForm/TaskForm';
 
 export default class App extends Component {
   state = { hasError: false }
@@ -31,7 +32,8 @@ export default class App extends Component {
             <Route exact path={'/'} component={LandingPage} />
             <PublicOnlyRoute path={'/login'} component={LoginPage} />
             <PublicOnlyRoute path={'/register'} component={RegisterPage} />
-            <PrivateRoute path={'/:username/dash'} component={DashboardPage} />
+            <PrivateRoute path={'/dash'} component={DashboardPage} />
+            <PrivateRoute path={'/new-task'} component={TaskForm} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>

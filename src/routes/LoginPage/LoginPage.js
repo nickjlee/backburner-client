@@ -12,7 +12,7 @@ export default class LoginPage extends Component {
 
   handleLoginSuccess = (username) => {
     const { history } = this.props
-    const destination = `/${username}/dash`
+    const destination = `/dash`
     history.push(destination)
   }
   
