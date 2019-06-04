@@ -3,9 +3,11 @@ import React, { Component } from 'react'
 const DashboardContext = React.createContext({
   taskList: [],
   user: {},
+  rewardsChest: [],
   error: null,
   setTaskList: () => {},
   setUser: () => {},
+  addReward: () => {},
   clearUser: () => {},
   setError: () => {},
   clearError: () => {},
@@ -17,6 +19,7 @@ export class DashboardProvider extends Component {
   state = {
     taskList: [],
     user: {},
+    rewardsChest: [],
     error: null
   }
   
@@ -34,11 +37,15 @@ export class DashboardProvider extends Component {
   setUser = user => {
     this.setState({ user })
   }
-
+  
   clearUser = () => {
     this.setState({ user: {} })
   }
 
+  addReward = reward => {
+    this.setState([ reward, ...this.state.rewardsChest ])
+  }
+  
   setError = error => {
     console.error(error)
     this.setState({ error })
@@ -52,9 +59,11 @@ export class DashboardProvider extends Component {
     const value = {
       taskList: this.state.taskList,
       user: this.state.user,
+      rewardsChest: this.state.rewardsChest,
       setTaskList: this.setTaskList,
       setUser: this.setUser,
       clearUser: this.clearUser,
+      addReward: this.addReward,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,

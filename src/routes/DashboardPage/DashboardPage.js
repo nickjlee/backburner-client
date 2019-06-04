@@ -6,6 +6,7 @@ import { Section } from '../../components/Utils/Utils';
 import UserProfileBrief from '../../components/UserProfileBrief/UserProfileBrief'
 import TaskList from '../../components/TaskList/TaskList'
 import TokenService from '../../services/token-service'
+import RewardsChest from '../../components/RewardsChest/RewardsChest';
 
 export default class DashboardPage extends Component {
   static defaultProps = {
@@ -38,9 +39,14 @@ export default class DashboardPage extends Component {
   }
   
   renderUserProfileBrief() {
-    const { user } = this.context
+    const { user, rewardsChest } = this.context
     
-    return <UserProfileBrief user={user} />
+    return (
+      <div className='user_profile_brief'>
+        <UserProfileBrief user={user} />
+        <RewardsChest rewardsChest={rewardsChest} />
+      </div>
+    )
   }
   
   render() {
