@@ -40,8 +40,8 @@ const DashboardApiService = {
     )
   },
 
-  deleteTask(taskId) {
-    return fetch(`${config.API_ENDPOINT}/tasks/${taskId}`, {
+  deleteTask(id) {
+    return fetch(`${config.API_ENDPOINT}/tasks/${id}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
@@ -74,6 +74,16 @@ const DashboardApiService = {
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     )
+  },
+
+  claimReward(id) {
+    return fetch(`${config.API_ENDPOINT}/rewards/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        authorization: `bearer ${TokenService.getAuthToken()}`
+      }
+    })
   },
 
   updateUserXp(gained_xp) {

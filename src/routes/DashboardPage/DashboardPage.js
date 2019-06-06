@@ -30,6 +30,61 @@ export default class DashboardPage extends Component {
       .catch(this.context.setError)
   }
   
+  handleClickRemove = (task_id) => {
+    DashboardApiService.deleteTask(task_id)
+    .then(() => {
+      DashboardApiService.getUserTasks()
+      .then(this.context.setTaskList)
+    })
+    .catch(this.context.setError)
+  }
+  
+  handleClickComplete = (task_id, reward, xp_gained) => {
+    try {
+      DashboardApiService.updateUserXp(Number(xp_gained))
+      .then(this.context.setUser)
+      
+      DashboardApiService.deleteTask(task_id)
+      .then(() => {
+        DashboardApiService.getUserTasks()
+        .then(this.context.setTaskList)
+      })
+      // .catch(this.context.setError)
+      
+      DashboardApiService.postReward(reward)
+      .then(() => {
+        DashboardApiService.getUserRewards()
+        .then(this.context.setRewardsChest)
+      })
+      // .catch(this.context.setError)
+    } catch(error) {
+      this.context.setError(error)
+    }
+  }
+
+  handleClickClaim = (reward_id) => {
+    DashboardApiService.claimReward(reward_id)
+    .then(() => {
+      DashboardApiService.getUserRewards()
+        .then(this.context.setRewardsChest)
+    })
+    .catch(this.context.setError)
+  }
+  
+  renderUserProfileBrief() {
+    const { user, rewardsChest } = this.context
+    
+    return (
+      <div className='user_profile_brief'>
+        <UserProfileBrief user={user} />
+        <RewardsChest 
+          rewardsChest={rewardsChest}
+          onClaim={this.handleClickClaim}
+        />
+      </div>
+    )
+  }
+  
   renderTasks() {
     const { taskList = [] } = this.context
     
@@ -41,49 +96,6 @@ export default class DashboardPage extends Component {
     )
   }
 
-  handleClickRemove = (task_id) => {
-    DashboardApiService.deleteTask(task_id)
-      .then(() => {
-        DashboardApiService.getUserTasks()
-          .then(this.context.setTaskList)
-      })
-      .catch(this.context.setError)
-  }
-
-  handleClickComplete = (task_id, reward, xp_gained) => {
-    try {
-      DashboardApiService.updateUserXp(Number(xp_gained))
-        .then(this.context.setUser)
-
-      DashboardApiService.deleteTask(task_id)
-        .then(() => {
-          DashboardApiService.getUserTasks()
-            .then(this.context.setTaskList)
-        })
-        // .catch(this.context.setError)
-  
-      DashboardApiService.postReward(reward)
-        .then(() => {
-          DashboardApiService.getUserRewards()
-            .then(this.context.setRewardsChest)
-        })
-        // .catch(this.context.setError)
-    } catch(error) {
-      this.context.setError(error)
-    }
-  }
-  
-  renderUserProfileBrief() {
-    const { user, rewardsChest } = this.context
-    
-    return (
-      <div className='user_profile_brief'>
-        <UserProfileBrief user={user} />
-        <RewardsChest rewardsChest={rewardsChest} />
-      </div>
-    )
-  }
-  
   render() {
     const { error } = this.context
     
