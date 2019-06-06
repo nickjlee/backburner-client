@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import RewardItem from '../RewardItem/RewardItem';
 import { Section } from '../Utils/Utils';
-
+import './RewardsChest.css'
 export default class RewardsChest extends Component {
   renderRewards = () => {
     const { rewardsChest } = this.props
@@ -10,7 +10,7 @@ export default class RewardsChest extends Component {
       return 'No Rewards Earned. Keep working!'
     } else {
       return rewardsChest.map(reward => 
-          <RewardItem key={reward.id} reward={reward} />
+        <RewardItem key={reward.id} reward={reward} />
       )
     }
   }
@@ -18,9 +18,10 @@ export default class RewardsChest extends Component {
   render() {
     return (
       <Section list className='RewardsChest'>
-        <ul>
+        <h2>Rewards Chest</h2>
+        <div className='RewardsChest__rewards'>
           {this.renderRewards()}
-        </ul>
+        </div>
       </Section>
     )
   }

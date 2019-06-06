@@ -1,0 +1,12 @@
+.RewardItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.RewardItem__reward {
+  align-self: center;
+}
+
+.RewardItem__loot-button {
+  width: 40px;
+}
