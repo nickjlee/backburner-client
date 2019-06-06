@@ -18,6 +18,10 @@ export default class Header extends Component {
     return (
       <div className='Header__logged-in'>
         <Link
+          to='/dash'>
+          Dashboard
+        </Link>
+        <Link
           onClick={this.handleLogoutClick}
           to='/'>
           Logout
