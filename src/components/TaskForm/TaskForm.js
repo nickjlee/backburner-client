@@ -21,7 +21,10 @@ export default class TaskForm extends Component {
       reward.value,
       Number(xp.value)
     )
-      .then(this.context.addNewTask)
+      .then(() => {
+        DashboardApiService.getUserTasks()
+          .then(this.context.setTaskList)
+      })
       .then(() => {
         this.props.onAddSuccess()
         text.value = ''
