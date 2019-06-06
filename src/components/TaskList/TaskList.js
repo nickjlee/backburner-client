@@ -4,9 +4,9 @@ import './TaskList.css'
 
 export default class TaskList extends Component {
   renderTasks() {
-    const { taskList = [] } = this.props
+    const { taskList = [], onComplete, onRemove } = this.props
 
-    return taskList.map(task => <TaskListItem key={task.id} task={task} />)
+    return taskList.map(task => <TaskListItem key={task.id} task={task} onComplete={onComplete} onRemove={onRemove} />)
   }
   
   render() {
