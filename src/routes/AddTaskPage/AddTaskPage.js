@@ -10,7 +10,7 @@ export default class AddTaskPage extends Component {
     }
   }
 
-  handleAddSucess = () => {
+  handleAddSuccess = () => {
     const { history } = this.props
     const destination = '/dash'
     history.push(destination)
@@ -20,7 +20,7 @@ export default class AddTaskPage extends Component {
     return (
       <Section className='AddTaskPage'>
         <h2>Add New Task</h2>
-        <TaskForm onAddSuccess={this.handleAddSucess} />
+        <TaskForm onAddSuccess={this.handleAddSuccess} />
       </Section>
     )
   }
