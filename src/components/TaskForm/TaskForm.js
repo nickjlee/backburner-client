@@ -13,11 +13,9 @@ export default class TaskForm extends Component {
   handleSubmit = ev => {
     ev.preventDefault()
 
-    const { user } = this.context
     const { text, due_date, reward, xp } = ev.target
 
     DashboardApiService.postNewTask(
-      user.id,
       text.value,
       due_date.value,
       reward.value,
