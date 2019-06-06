@@ -8,6 +8,7 @@ export default class UserProfileBrief extends Component {
 
     return (
       <div className="user">
+        <div>{user.xp}</div>
         <div className="user__username">{user.username}</div>
         <div className="user__badge">Level: {user.level}</div>
         <div className="user_member-since">Since: {NiceDate({date: user.date_joined, format: 'MMM YYYY'})}</div>

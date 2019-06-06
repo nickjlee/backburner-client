@@ -7,8 +7,9 @@ const DashboardContext = React.createContext({
   error: null,
   setTaskList: () => {},
   setUser: () => {},
-  addReward: () => {},
+  updateUserXp: () => {},
   clearUser: () => {},
+  setRewardsChest: () => {},
   setError: () => {},
   clearError: () => {},
 })
@@ -22,13 +23,6 @@ export class DashboardProvider extends Component {
     rewardsChest: [],
     error: null
   }
-  
-  addNewTask = newTask => {
-    this.setTaskList([
-      ...this.state.taskList,
-      newTask
-    ])
-  }
 
   setTaskList = taskList => {
     this.setState({ taskList })
@@ -37,13 +31,17 @@ export class DashboardProvider extends Component {
   setUser = user => {
     this.setState({ user })
   }
+
+  updateUser = user => {
+    this.setState({ user })
+  }
   
   clearUser = () => {
     this.setState({ user: {} })
   }
 
-  addReward = reward => {
-    this.setState([ reward, ...this.state.rewardsChest ])
+  setRewardsChest = rewardsChest => {
+    this.setState({ rewardsChest })
   }
   
   setError = error => {
@@ -60,11 +58,12 @@ export class DashboardProvider extends Component {
       taskList: this.state.taskList,
       user: this.state.user,
       rewardsChest: this.state.rewardsChest,
+      error: this.state.error,
       setTaskList: this.setTaskList,
       setUser: this.setUser,
+      updateUserXp: this.updateUserXp,
       clearUser: this.clearUser,
-      addReward: this.addReward,
-      error: this.state.error,
+      setRewardsChest: this.setRewardsChest,
       setError: this.setError,
       clearError: this.clearError,
     }

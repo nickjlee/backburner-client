@@ -22,12 +22,10 @@ export default class DashboardPage extends Component {
     DashboardApiService.getUserByUsername(username)
     .then(this.context.setUser)
     .then(() => {
-      if(username !== this.context.user.username) {
-        this.context.setError('You are authorized for this page')
-      } else {
-        DashboardApiService.getUserTasks(this.context.user.id)
-            .then(this.context.setTaskList)
-      }
+      DashboardApiService.getUserTasks()
+        .then(this.context.setTaskList)
+      DashboardApiService.getUserRewards()
+        .then(this.context.setRewardsChest)
       })
       .catch(this.context.setError)
   }
@@ -35,7 +33,44 @@ export default class DashboardPage extends Component {
   renderTasks() {
     const { taskList = [] } = this.context
     
-    return <TaskList taskList={taskList} />
+    return (
+      <TaskList
+        taskList={taskList}
+        onComplete={this.handleClickComplete}
+        onRemove={this.handleClickRemove}/>
+    )
+  }
+
+  handleClickRemove = (task_id) => {
+    DashboardApiService.deleteTask(task_id)
+      .then(() => {
+        DashboardApiService.getUserTasks()
+          .then(this.context.setTaskList)
+      })
+      .catch(this.context.setError)
+  }
+
+  handleClickComplete = (task_id, reward, xp_gained) => {
+    try {
+      DashboardApiService.updateUserXp(Number(xp_gained))
+        .then(this.context.setUser)
+
+      DashboardApiService.deleteTask(task_id)
+        .then(() => {
+          DashboardApiService.getUserTasks()
+            .then(this.context.setTaskList)
+        })
+        // .catch(this.context.setError)
+  
+      DashboardApiService.postReward(reward)
+        .then(() => {
+          DashboardApiService.getUserRewards()
+            .then(this.context.setRewardsChest)
+        })
+        // .catch(this.context.setError)
+    } catch(error) {
+      this.context.setError(error)
+    }
   }
   
   renderUserProfileBrief() {
@@ -56,7 +91,9 @@ export default class DashboardPage extends Component {
       <>
         <Section className="UserProfileBrief">
           {error ? (
-            <p className="red">There was an error retrieving User, please try again</p>
+            <p className="red">
+              There was an error retrieving User, please try again
+            </p>
           ) : (
             this.renderUserProfileBrief()
           )}
@@ -64,7 +101,9 @@ export default class DashboardPage extends Component {
         <Link to="/new-task">Add New Task</Link>
         <Section list className="TaskList">
           {error ? (
-            <p className="red">There was an error retrieving Tasks, please try again</p>
+            <p className="red">
+              There was an error retrieving Tasks, please try again
+            </p>
           ) : (
             this.renderTasks()
           )}
