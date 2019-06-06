@@ -1,0 +1,18 @@
+.user__profile-brief {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  max-width: 80%;
+  margin: 0 auto;
+  max-height: 100px;
+}
+
+.user__xp-gauge {
+  max-height: 100%;
+  width: 100px;
+}
+
+h3 {
+  margin: 0;
+  
+}

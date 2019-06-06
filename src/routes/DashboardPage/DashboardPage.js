@@ -42,7 +42,7 @@ export default class DashboardPage extends Component {
   handleClickComplete = (task_id, reward, xp_gained) => {
     try {
       DashboardApiService.updateUserXp(Number(xp_gained))
-      .then(this.context.setUser)
+        .then(this.context.setUser)
       
       DashboardApiService.deleteTask(task_id)
       .then(() => {
@@ -75,13 +75,13 @@ export default class DashboardPage extends Component {
     const { user, rewardsChest } = this.context
     
     return (
-      <div className='user_profile_brief'>
+      <>
         <UserProfileBrief user={user} />
         <RewardsChest 
           rewardsChest={rewardsChest}
           onClaim={this.handleClickClaim}
         />
-      </div>
+      </>
     )
   }
   

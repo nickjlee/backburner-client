@@ -7,6 +7,7 @@
 
 .Header h1 {
   margin: 0;
+  align-self: center;
 }
 
 .Header a {
@@ -37,7 +38,7 @@
 
 .Header__not-logged-in a:last-child {
   /* background: rgb(255, 121, 121); */
-  background: red;
+  background: #A41F26;
   color: white;
   padding: 5px 15px;
   border-radius: 15px;
@@ -46,7 +47,7 @@
 
 .Header__logged-in a:last-child {
   /* border: 1px solid rgba(0, 0, 0, 0.25); */
-  border: 1px solid red;
+  border: 1px solid #A41F26;
   padding: 5px 15px;
   border-radius: 15px;
   margin-left: 10px;
