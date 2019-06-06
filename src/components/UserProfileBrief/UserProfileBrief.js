@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NiceDate } from '../Utils/Utils'
 import './UserProfileBrief.css'
 
 export default class UserProfileBrief extends Component {
@@ -9,7 +10,7 @@ export default class UserProfileBrief extends Component {
       <div className="user">
         <div className="user__username">{user.username}</div>
         <div className="user__badge">Level: {user.level}</div>
-        <div className="user_member-since">EST: {user.date_joined}</div>
+        <div className="user_member-since">Since: {NiceDate({date: user.date_joined, format: 'MMM YYYY'})}</div>
       </div>
     )
   }
