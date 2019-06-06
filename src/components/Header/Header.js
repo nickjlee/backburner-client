@@ -55,14 +55,14 @@ export default class Header extends Component {
               BackBurner
             </Link>
           </h1>
-          <span className='Header__tagline--wide'>Level Up Your Life.</span>
+          <span className='Header__tagline--wide'>Organize Your Life.</span>
           {TokenService.hasAuthToken()
             ? this.renderLogoutLink()
             : this.renderLoginLink()
           }
         </nav>
 
-        <span className='Header__tagline--narrow'>Level Up Your Life.</span>
+        <span className='Header__tagline--narrow'>Organize Your Life.</span>
       </>
   }
 }
