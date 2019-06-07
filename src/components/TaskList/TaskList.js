@@ -11,9 +11,9 @@ export default class TaskList extends Component {
   
   render() {
     return (
-      <ul className="TaskList">
+      <div className="tasklist-inner">
         {this.renderTasks()}
-      </ul>
+      </div>
     )
   }
 }

@@ -1,9 +1,56 @@
 .TaskListItem {
-  /* margin-bottom: 5%; */
   padding: 1% 5%;
+  /* border: 1px solid #108AFB; */
+  /* border-bottom: 1px solid #108afb; */
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.Button {
-  margin: 2.5%;
-  width: 45%;
+.TaskListItem__task-stats {
+  display: flex;
+  flex-direction: column;
+}
+
+.TaskListItem__name {
+  font-size: 1.8em;
+  overflow: hidden;
+}
+
+.TaskListItem__reward,
+.TaskListItem__due_date,
+.TaskListItem__xp-value {
+  color: #484848
+}
+
+.TaskListItem__reward svg {
+  color: #108AFB;
+  margin-right: 15px;
+}
+
+.TaskListItem__due_date svg {
+  color: #108AFB;
+  margin-right: 12px;
+}
+
+.TaskListItem__xp {
+  color: #108AFB;
+  
+}
+
+.TaskListItem__controls {
+  display: flex;
+  font-size: 36px;
+  flex-direction: column;
+  margin-bottom: 5px;
+  justify-content: space-around;
+}
+
+.TaskListItem__complete {
+  color: #3BD474;
+}
+
+.TaskListItem__remove {
+  color: #A41F26;
 }

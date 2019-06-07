@@ -1,29 +1,41 @@
 import React, { Component } from 'react'
+import { NiceDate } from '../Utils/Utils'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle, faTimesCircle, faCalendarCheck, faAward } from '@fortawesome/free-solid-svg-icons'
 import './TaskListItem.css'
-import { NiceDate, Button } from '../Utils/Utils'
 export default class TaskListItem extends Component {
   render() {
     const { task, onComplete, onRemove } = this.props
 
     return (
-      <li key={task.id} className="TaskListItem">
-        <div className="TaskListItem__name">{task.text}</div>
-        <div className="TaskListItem__due_date">
-          Due: {NiceDate({ date: task.due_date })}
+      <div key={task.id} className='TaskListItem'>
+        <div className='TaskListItem__task-stats'>
+          <div className='TaskListItem__name'>{task.text}</div>
+          <div className='TaskListItem__due_date'>
+            <FontAwesomeIcon icon={faCalendarCheck} />
+            {NiceDate({ date: task.due_date })}
+          </div>
+          <div className='TaskListItem__reward'>
+            <FontAwesomeIcon icon={faAward} />
+            {task.reward}
+          </div>
+          <div className='TaskListItem__xp'>XP{' '}
+            <span className='TaskListItem__xp-value'>{task.xp}</span>
+          </div>
         </div>
-        <div className="TaskListItem__reward">Reward: {task.reward}</div>
-        <div className="TaskListItem__xp">XP: {task.xp}</div>
-        <Button 
-          className="TaskListItem__edit"
-          onClick={() => onComplete(task.id, task.reward, task.xp)}>
-            Complete
-        </Button>
-        <Button 
-          className="TaskListItem__delete"
-          onClick={() => onRemove(task.id)}>
-            Remove
-        </Button>
-      </li>
+        <div className='TaskListItem__controls'>
+          <FontAwesomeIcon
+            icon={faCheckCircle}
+            className='TaskListItem__complete'
+            onClick={() => onComplete(task.id, task.reward, task.xp)}
+          />
+          <FontAwesomeIcon
+            icon={faTimesCircle}
+            className='TaskListItem__remove'
+            onClick={() => onRemove(task.id)}
+          />          
+        </div>
+      </div>
     )
   }
 }
