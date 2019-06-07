@@ -1,13 +1,12 @@
 .user__profile-brief {
   border: 3px solid #484848;
-  border-radius: 15px;
+  border-radius: 7px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  min-width: 80%;
-  margin: 0 auto;
-  /* min-height: 150px; */
+  /* min-width: 80%;
+  margin: 0 auto; */
   padding: 15px 25px;
 }
 
