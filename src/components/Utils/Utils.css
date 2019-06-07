@@ -6,7 +6,7 @@
 
 .Input,
 .Textarea {
-  border: 1px solid #ddd;
+  border: 1px solid #484848;
   display: block;
   font-size: 1.1em;
   margin-bottom: 10px;
@@ -18,11 +18,22 @@
 
 .Input::placeholder,
 .Textarea::placeholder {
-  color: #ccc;
+  color: #aaa;
 }
 
 .Textarea {
   resize: vertical;
+}
+
+.Select {
+  border: 1px solid #484848;
+  display: block;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: left;
+  width: 100%;
+  border-radius: 4px;
 }
 
 .Button {
