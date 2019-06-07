@@ -1,6 +1,7 @@
 .RewardItem {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 7px;
 }
 
 .RewardItem__reward {
@@ -12,7 +13,7 @@
   color: #FFD700;
   width: 40px;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
   margin: auto 10px auto 0;
 }
 

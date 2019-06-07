@@ -19,7 +19,8 @@ export default class TaskListItem extends Component {
             <FontAwesomeIcon icon={faAward} />
             {task.reward}
           </div>
-          <div className='TaskListItem__xp'>XP{' '}
+          <div className='TaskListItem__xp'>
+            <span className='TaskListItem__xp-label'>XP</span>
             <span className='TaskListItem__xp-value'>{task.xp}</span>
           </div>
         </div>

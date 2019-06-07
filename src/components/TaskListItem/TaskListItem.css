@@ -16,12 +16,15 @@
 .TaskListItem__name {
   font-size: 1.8em;
   overflow: hidden;
+  margin-bottom: 7px;
 }
 
 .TaskListItem__reward,
 .TaskListItem__due_date,
-.TaskListItem__xp-value {
-  color: #484848
+.TaskListItem__xp {
+  color: #484848;
+  padding-left: 20px;
+  padding-bottom: 5px;
 }
 
 .TaskListItem__reward svg {
@@ -34,9 +37,9 @@
   margin-right: 12px;
 }
 
-.TaskListItem__xp {
+.TaskListItem__xp-label {
   color: #108AFB;
-  
+  margin-right: 6px;
 }
 
 .TaskListItem__controls {
@@ -49,8 +52,10 @@
 
 .TaskListItem__complete {
   color: #3BD474;
+  cursor: pointer;
 }
 
 .TaskListItem__remove {
   color: #A41F26;
+  cursor: pointer;
 }

@@ -9,7 +9,8 @@
 }
 
 .RewardsChest__rewards {
-  width: 100%;
+  width: 60%;
+  margin: 20px auto 0 auto;
   display: flex;
   flex-direction: column;
   align-content: space-around;
