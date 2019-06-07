@@ -4,9 +4,29 @@
 }
 
 .RewardItem__reward {
-  align-self: center;
+  display: flex;
+  flex-direction: row;
 }
 
-.RewardItem__claim-button {
+.RewardItem__claim-icon {
+  color: #FFD700;
   width: 40px;
+  justify-content: center;
+  /* align-items: center; */
+  margin: auto 10px auto 0;
+}
+
+.RewardItem__reward-text {
+  /* align-self: center; */
+  margin: auto 0;
+  justify-content: center;
+}
+.RewardItem__claim-button {
+  background-color: #3BD474;
+  font-size: 0.7em;
+  border-color: #3BD474;
+  border-radius: 5px;
+  padding: 4px 6px;
+  font-weight: 200;
+  width: 20%;
 }
