@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Section } from '../Utils/Utils'
 import './LandingPageHero.css'
+import DemoCredentials from '../DemoCredentials/DemoCredentials';
 
 export default class LandingPageHero extends Component {
   render() {
@@ -17,6 +18,7 @@ export default class LandingPageHero extends Component {
             BackBurner allows you to questify your life, set goals, and be more
             productive. Gain XP to level up and earn rewards. Complete tasks, level up, and collect loot as you clear those tasks that you pile on your BackBurner.
           </span>
+          <DemoCredentials />
         </h1>
       </Section>
     )
