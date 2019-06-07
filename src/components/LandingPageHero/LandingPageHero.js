@@ -5,16 +5,17 @@ import './LandingPageHero.css'
 export default class LandingPageHero extends Component {
   render() {
     return (
-      <Section className='hero'>
-        <h1 className='hero-textblock'>
-          <span className='hero-title'>
-            BackBurner
+      <Section className="LandingPageHero">
+        <h1 className="LandingPageHero__textblock">
+          <span className="LandingPageHero__title">BackBurner</span>
+          <span className="LandingPageHero__subtitle">
+            <span className="blue">Complete Tasks.</span>
+            {' '}
+            <span className="red">Level Up</span>
           </span>
-          <span className='hero-subtitle'>
-            Complete Tasks. Level Up
-          </span>
-          <span className='hero-text'>
-            BackBurner allows you to questify your life, set goals, and be productive. Gain XP and Coins to loot rewards for completing dailies and todo quests. Complete tasks, level up, and collect loot on your way to a more productive you.
+          <span className="LandingPageHero__intro">
+            BackBurner allows you to questify your life, set goals, and be more
+            productive. Gain XP to level up and earn rewards. Complete tasks, level up, and collect loot as you clear those tasks that you pile on your BackBurner.
           </span>
         </h1>
       </Section>

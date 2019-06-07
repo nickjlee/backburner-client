@@ -1,22 +1,36 @@
-.hero {
-  margin: 20% 10% auto;
-  top: 50%;
-  left: 50%;
+.LandingPageHero {
+  /* border: 1px solid white; */
+  /* background-color: #484848; */
+  border-top: 10px solid #484848;
+  border-bottom: 10px solid #484848;
+  margin: 5% 0 0 0;
+  padding: 0 20px 20px 20px;
   display: block;
   text-align: center;
 }
 
-.hero-title {
-  display: block;
-  padding-bottom: 5%;
-  font-size: 150%;
+.LandingPageHero__textblock {
+  /* border: 1px solid red; */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-.hero-subtitle {
-  display: block;
-  padding-bottom: 5%;
+.LandingPageHero__title {
+  /* border: 1px solid blue; */
+  margin: 25px 0;
+  font-size: 2.1em;
 }
 
-.hero-text {
-  font-size: 50%;
+.LandingPageHero__subtitle {
+  /* border: 1px solid yellow; */
+  display: block;
+  padding-bottom: 20px;
+}
+
+.LandingPageHero__intro {
+  /* border: 3px solid green; */
+  color: #aaa;
+  font-size: 0.9em;
 }
