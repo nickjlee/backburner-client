@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFireAlt } from '@fortawesome/free-solid-svg-icons'
-import './Header.css'
 import DashboardContext from '../../contexts/DashboardContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBullseye } from '@fortawesome/free-solid-svg-icons'
+import './Header.css'
 
 export default class Header extends Component {
   static contextType = DashboardContext
@@ -50,7 +50,7 @@ export default class Header extends Component {
         <nav className='Header'>
           <h1>
             <Link to='/'>
-              <FontAwesomeIcon className='red' icon={faFireAlt} />
+              <FontAwesomeIcon className='red' icon={faBullseye} />
               {' '}
               BackBurner
             </Link>
