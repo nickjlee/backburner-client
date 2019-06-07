@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import DashboardContext from '../../contexts/DashboardContext'
 import DashboardApiService from '../../services/dashboard-api-service'
-import { Section } from '../../components/Utils/Utils';
+import { Section } from '../../components/Utils/Utils'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretRight, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import UserProfileBrief from '../../components/UserProfileBrief/UserProfileBrief'
 import TaskList from '../../components/TaskList/TaskList'
 import TokenService from '../../services/token-service'
-import RewardsChest from '../../components/RewardsChest/RewardsChest';
+import RewardsChest from '../../components/RewardsChest/RewardsChest'
 
 export default class DashboardPage extends Component {
   static defaultProps = {
@@ -18,87 +20,81 @@ export default class DashboardPage extends Component {
   componentDidMount() {
     this.context.clearError()
     const username = TokenService.getTokenPayload().sub
-    
+
     DashboardApiService.getUserByUsername(username)
-    .then(this.context.setUser)
-    .then(() => {
-      DashboardApiService.getUserTasks()
-        .then(this.context.setTaskList)
-      DashboardApiService.getUserRewards()
-        .then(this.context.setRewardsChest)
+      .then(this.context.setUser)
+      .then(() => {
+        DashboardApiService.getUserTasks().then(this.context.setTaskList)
+        DashboardApiService.getUserRewards().then(this.context.setRewardsChest)
       })
       .catch(this.context.setError)
   }
-  
-  handleClickRemove = (task_id) => {
+
+  handleClickRemove = task_id => {
     DashboardApiService.deleteTask(task_id)
-    .then(() => {
-      DashboardApiService.getUserTasks()
-      .then(this.context.setTaskList)
-    })
-    .catch(this.context.setError)
+      .then(() => {
+        DashboardApiService.getUserTasks().then(this.context.setTaskList)
+      })
+      .catch(this.context.setError)
   }
-  
+
   handleClickComplete = (task_id, reward, xp_gained) => {
     try {
-      DashboardApiService.updateUserXp(Number(xp_gained))
-        .then(this.context.setUser)
-      
-      DashboardApiService.deleteTask(task_id)
-      .then(() => {
-        DashboardApiService.getUserTasks()
-        .then(this.context.setTaskList)
+      DashboardApiService.updateUserXp(Number(xp_gained)).then(
+        this.context.setUser
+      )
+
+      DashboardApiService.deleteTask(task_id).then(() => {
+        DashboardApiService.getUserTasks().then(this.context.setTaskList)
       })
       // .catch(this.context.setError)
-      
-      DashboardApiService.postReward(reward)
-      .then(() => {
-        DashboardApiService.getUserRewards()
-        .then(this.context.setRewardsChest)
+
+      DashboardApiService.postReward(reward).then(() => {
+        DashboardApiService.getUserRewards().then(this.context.setRewardsChest)
       })
       // .catch(this.context.setError)
-    } catch(error) {
+    } catch (error) {
       this.context.setError(error)
     }
   }
 
-  handleClickClaim = (reward_id) => {
+  handleClickClaim = reward_id => {
     DashboardApiService.claimReward(reward_id)
-    .then(() => {
-      DashboardApiService.getUserRewards()
-        .then(this.context.setRewardsChest)
-    })
-    .catch(this.context.setError)
+      .then(() => {
+        DashboardApiService.getUserRewards().then(this.context.setRewardsChest)
+      })
+      .catch(this.context.setError)
   }
-  
+
   renderUserProfileBrief() {
     const { user, rewardsChest } = this.context
-    
+
     return (
       <>
         <UserProfileBrief user={user} />
-        <RewardsChest 
+        <RewardsChest
           rewardsChest={rewardsChest}
           onClaim={this.handleClickClaim}
         />
       </>
     )
   }
-  
+
   renderTasks() {
     const { taskList = [] } = this.context
-    
+
     return (
       <TaskList
         taskList={taskList}
         onComplete={this.handleClickComplete}
-        onRemove={this.handleClickRemove}/>
+        onRemove={this.handleClickRemove}
+      />
     )
   }
 
   render() {
     const { error } = this.context
-    
+
     return (
       <>
         <Section className="UserProfileBrief">
@@ -110,7 +106,15 @@ export default class DashboardPage extends Component {
             this.renderUserProfileBrief()
           )}
         </Section>
-        <Link to="/new-task">Add New Task</Link>
+        <Section className="AddTask">
+          <Link to='/new-task'>
+            <h3 className="add-task-link">
+              Add New Task
+              {' '}
+              <FontAwesomeIcon className='blue add-task-icon' icon={faCaretRight} />
+            </h3>
+          </Link>
+        </Section>
         <Section list className="TaskList">
           {error ? (
             <p className="red">
