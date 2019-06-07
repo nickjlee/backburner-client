@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lustria');
+
 .Header {
   height: 40px;
   display: flex;
@@ -6,12 +8,13 @@
 }
 
 .Header h1 {
+  font-family: "Lustria";
+  font-weight: 100;
   margin: 0;
   align-self: center;
 }
 
 .Header a {
-  /* color: #444; */
   color: white;
   text-decoration: none;
 }
@@ -19,6 +22,7 @@
 .Header__tagline--wide {
   opacity: 0.35;
   margin-left: 10px;
+  align-self: center;
 }
 
 .Header__tagline--narrow {
@@ -27,6 +31,7 @@
   text-align: center;
   display: none;
   margin-top: 10px;
+  align-self: center;
 }
 
 .Header__not-logged-in, .Header__logged-in {
@@ -51,6 +56,12 @@
   padding: 5px 15px;
   border-radius: 15px;
   margin-left: 10px;
+}
+
+@media screen and (max-width: 350px) {
+  .Header h1 {
+    font-size: 12pt;
+  }
 }
 
 @media screen and (min-width: 450px) {

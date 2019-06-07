@@ -9,6 +9,7 @@ import UserProfileBrief from '../../components/UserProfileBrief/UserProfileBrief
 import TaskList from '../../components/TaskList/TaskList'
 import TokenService from '../../services/token-service'
 import RewardsChest from '../../components/RewardsChest/RewardsChest'
+import './DashboardPage.css'
 
 export default class DashboardPage extends Component {
   static defaultProps = {
@@ -49,9 +50,11 @@ export default class DashboardPage extends Component {
       })
       // .catch(this.context.setError)
 
-      DashboardApiService.postReward(reward).then(() => {
-        DashboardApiService.getUserRewards().then(this.context.setRewardsChest)
-      })
+      if(reward !== '') {
+        DashboardApiService.postReward(reward).then(() => {
+          DashboardApiService.getUserRewards().then(this.context.setRewardsChest)
+        })
+      }
       // .catch(this.context.setError)
     } catch (error) {
       this.context.setError(error)
@@ -96,25 +99,27 @@ export default class DashboardPage extends Component {
     const { error } = this.context
 
     return (
-      <>
-        <Section className="UserProfileBrief">
-          {error ? (
-            <p className="red">
-              There was an error retrieving User, please try again
-            </p>
-          ) : (
-            this.renderUserProfileBrief()
-          )}
-        </Section>
-        <Section className="AddTask">
-          <Link to='/new-task'>
-            <h3 className="add-task-link">
-              Add New Task
-              {' '}
-              <FontAwesomeIcon className='blue add-task-icon' icon={faCaretRight} />
-            </h3>
-          </Link>
-        </Section>
+      <div className='Dashboard'>
+        <div className='UserProfileBrief__with-add-task'>
+          <Section className="UserProfileBrief">
+            {error ? (
+              <p className="red">
+                There was an error retrieving User, please try again
+              </p>
+            ) : (
+              this.renderUserProfileBrief()
+            )}
+          </Section>
+          <Section className="AddTask">
+            <Link to='/new-task'>
+              <h3 className="add-task-link">
+                Add New Task
+                {' '}
+                <FontAwesomeIcon className='blue add-task-icon' icon={faCaretRight} />
+              </h3>
+            </Link>
+          </Section>
+        </div>
         <Section list className="TaskList">
           {error ? (
             <p className="red">
@@ -124,7 +129,7 @@ export default class DashboardPage extends Component {
             this.renderTasks()
           )}
         </Section>
-      </>
+      </div>
     )
   }
 }
