@@ -120,7 +120,7 @@ export default class DashboardPage extends Component {
             </Link>
           </Section>
         </div>
-        <Section list className="TaskList">
+        <Section className="TaskList">
           {error ? (
             <p className="red">
               There was an error retrieving Tasks, please try again
