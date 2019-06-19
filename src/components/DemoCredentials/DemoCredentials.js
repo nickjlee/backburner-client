@@ -12,7 +12,7 @@ export default class DemoCredentials extends Component {
           <span className="demo_username">demo</span>
         </h5>
         <h5 className="DemoCredentials__password-wrapper">
-          <span className="demo_password_label">Username:</span>
+          <span className="demo_password_label">Password:</span>
           {' '}
           <span className="demo_password">password</span>
         </h5>
