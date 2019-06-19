@@ -1,8 +1,17 @@
+.tasklist-title {
+  margin: 10px;
+}
+
+.tasklist-no-tasks {
+  margin: 0 auto 20px auto;
+  
+}
+
 .tasklist-inner {
   border: 3px solid #484848;
   border-radius: 7px;
   margin: 10px 0;
-  padding-top: 20px;
+  /* padding-top: 20px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
