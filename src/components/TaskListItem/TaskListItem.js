@@ -28,13 +28,15 @@ export default class TaskListItem extends Component {
           <FontAwesomeIcon
             icon={faCheckCircle}
             className='TaskListItem__complete'
+            title='Complete!'
             onClick={() => onComplete(task.id, task.reward, task.xp)}
           />
           <FontAwesomeIcon
             icon={faTimesCircle}
             className='TaskListItem__remove'
-            onClick={() => onRemove(task.id)}
-          />          
+            title='Remove..'
+            onClick={() => onRemove(task.id)} 
+          />
         </div>
       </div>
     )
