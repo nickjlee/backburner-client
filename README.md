@@ -12,7 +12,7 @@
 The application allows users to add and organize their tasks, complete them, gain experience points to level up their user profile, and earn self-described rewards as they complete each task.
 
 Many generate a to-do list, but fail to follow through on completing those tasks...</br>
-BackBurner aims to allow each user to organize their tasks and motivate themselves to follow through.
+**BackBurner** aims to allow each user to organize their tasks and motivate themselves to follow through.
 
 ## Current Features
 
