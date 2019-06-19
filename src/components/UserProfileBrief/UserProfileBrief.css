@@ -13,6 +13,11 @@
   width: 100px;
 }
 
-h3 {
+.user__stats h3 {
   margin: 0;  
+}
+
+.user__username {
+  font-size: 200%;
+  color: #A41F26;
 }
