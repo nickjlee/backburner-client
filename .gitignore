@@ -23,3 +23,5 @@ src/dummy-store.js
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+FutureFeatures.txt

@@ -1,68 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# BackBurner
+### Organize Your Life, Level Up, Reward Yourself
 
-## Available Scripts
+> **Version 1.0**</br>
+> Live Application [here](https://backburner.now.sh)</br>
+> Backend repository [here](https://github.com/nickjlee/backburner-server)
 
-In the project directory, you can run:
+## Introduction
 
-### `npm start`
+**Backburner** is a task management service that offers motivation to complete each task.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The application allows users to add and organize their tasks, complete them, gain experience points to level up their user profile, and earn self-described rewards as they complete each task.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Many generate a to-do list, but fail to follow through on completing those tasks...</br>
+BackBurner aims to allow each user to organize their tasks and motivate themselves to follow through.
 
-### `npm test`
+## Current Features
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- User Registration
+- Log In / Log Out
+- User Dashboard
+  * View User Stats
+  * View List of Tasks
+  * Add New Tasks
+  * Remove Tasks
+  * Check off Tasks (Mark Tasks as complete)
+  * View User's Rewards Chest
+  * Claim Earned Rewards
 
-### `npm run build`
+## Core Technologies
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React
+- JSX
+- HTML5
+- CSS3
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Upcoming Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- User XP Bar
+- XP System rework
+- Rewards System rework
+- Currency System
